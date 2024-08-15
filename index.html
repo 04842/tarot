@@ -3,21 +3,20 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>4/5 Studio Tarot</title>
+    <title>Tarot</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #000, #444);
+            background-color: #000;
             color: #fff;
-            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            padding: 20px;
+            text-align: center;
         }
         .navbar {
-            margin-bottom: 20px;
             background-color: #222;
         }
         .navbar a {
@@ -27,54 +26,92 @@
             color: #fff;
         }
         .jumbotron {
-            background: rgba(34, 34, 34, 0.9);
+            background-color: rgba(34, 34, 34, 0.9);
             color: #9acd32;
             padding: 30px;
             border-radius: 10px;
+            margin-bottom: 30px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
-        .btn-primary {
-            background: #3399ff;
-            border: none;
-            transition: background 0.3s;
-        }
-        .btn-primary:hover {
-            background: #2980b9;
+        h2 {
+            color: #3399ff;
         }
         footer {
             margin-top: 30px;
             color: #9acd32;
         }
-        canvas {
-            display: block;
-            margin: 20px auto;
-            border: 2px solid #3399ff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
     </style>
 </head>
 
 <body>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-91636179-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
+                <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Tarot</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">首頁</a></li>
-                <li><a href="draw.html">線上抽牌</a></li>
-            </ul>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">首頁<span class="sr-only">(current)</span></a></li>
+                    <li><a href="draw.html">線上抽牌</a></li>
+                    <li><a href="#">塔羅牌義</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="https://github.com/Spicdev" class="navbar-brand"><img src="css/images/icons/github-logo.png" style="width: 20px;"></a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/國立台灣海洋大學塔羅研習社-139070089568704/" class="navbar-brand"><img src="css/images/icons/facebook.png" style="width: 20px;"></a>
+                    </li>
+                    <li><a href="@mail" class="navbar-brand">聯繫我們</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div>
-        <canvas id="canvas" width="600" height="400"></canvas>
-    </div>
-
     <div class="container">
         <div class="jumbotron">
+            <h1>塔羅牌占卜</h1>
+            <p>發現你的內心世界</p>
             <p><a class="btn btn-primary btn-lg" href="draw.html" role="button">開始吧！</a></p>
         </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>占卜意義</h2>
+                <p>探索更深層的自我。</p>
+            </div>
+            <div class="col-md-4">
+                <h2>獲取指引</h2>
+                <p>尋找你的人生方向。</p>
+            </div>
+            <div class="col-md-4">
+                <h2>智慧之牌</h2>
+                <p>讓塔羅牌告訴你答案。</p>
+            </div>
+        </div>
+        <hr>
         <footer>
             <p>Penny &copy; 2025</p>
         </footer>
@@ -82,8 +119,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="starry.js"></script>
-    <script type="text/javascript">Starry.init();</script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
