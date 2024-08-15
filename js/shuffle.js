@@ -1,26 +1,47 @@
+function cutCards(deck) {
+    // 生成兩個切割點以分割牌堆
+    let stack1 = Math.floor(Math.random() * deck.length);
+    let stack2 = stack1 + Math.floor(Math.random() * (deck.length - stack1));
 
+    // 將牌堆切割成三部分
+    let card1 = deck.slice(0, stack1);
+    let card2 = deck.slice(stack1, stack2);
+    let card3 = deck.slice(stack2);
 
-function cutCards() {
-
-    // 生成三兩個切點，用於切割牌堆
-    let stack1 = Math.floor(Math.random() * 78);
-    let stack2 = stack1 + Math.floor(Math.random() * (78 - stack1));
-
-    // 切割牌堆
-    let card1 = card.slice(0, stack1);
-    let card2 = card.slice(stack1, stack2);
-    let card3 = card.slice(stack2);
-
-    // 將三份牌堆合併到一起
+    // 重新合併這三部分
     let finalStack = [...card3, ...card1, ...card2];
 
     return finalStack;
 }
 
-console.log(cutCards());
+// 示例用法
+let deck = Array.from({ length: 78 }, (_, i) => i + 1); // 創建一副78張牌
+let shuffledDeck = cutCards(deck);
+console.log(shuffledDeck);
 
+let drawnCards = [];
 
+function drawCard(deck) {
+    if (deck.length === 0) {
+        console.log("沒有更多牌可抽！");
+        return null;
+    }
 
+    // 隨機抽取一張牌
+    let index = Math.floor(Math.random() * deck.length);
+    let card = deck[index];
+
+    // 從牌堆中移除這張牌，並記錄到 drawnCards 中
+    deck.splice(index, 1);
+    drawnCards.push(card);
+
+    return card;
+}
+
+// 示例用法
+let card = drawCard(shuffledDeck);
+console.log(`抽到的牌: ${card}`);
+console.log(`已抽到的牌: ${drawnCards}`);
 
 /*function cutCards() {
     // 創建一個78張牌的數組
